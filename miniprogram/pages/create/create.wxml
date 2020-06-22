@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="create_activity">
+    <view class = "activity">
+      <view class='info_name'>活动名称: </view>
+      <input class='info_desc' value="天津蓝天羽毛球俱乐部活动" bindinput="inputSubject"/>
+    </view>   
+    <view class = "activity">
+      <view class='info_name'>活动地点: </view>
+      <input class='info_desc' value="正能量羽毛球馆" bindinput="inputAddress"/>
+    </view>   
+    <view class = "activity">
+      <view class='info_name'>活动场地: </view>
+      <input class='info_desc' value="VIP 1-5号" bindinput="inputCourt"/>
+    </view>   
+    <view class = "activity">
+      <view class='info_name'>限报人数: </view>
+      <input class='info_desc' value="30" bindinput="inputLimit"/>
+    </view>   
+    <view class = "activity">
+      <view class='info_name'>活动费用: </view>
+      <input class='info_desc' value="单次成人男45，成人女35，学生25" bindinput="inputPrice"/>
+    </view>     
+    <view class = "activity">
+      <view class='info_name'>活动日期: </view>
+      <picker class='date_picker' mode='date' start='{{activityDate}}' end="2030-01-01" bindchange="changeDate">
+        <view>{{activityDate}}</view>
+      </picker>
+    </view>     
+    <view class = "activity">
+      <view class='info_name'>活动时间: </view>
+      <input class='info_desc' value="晚19点至22点" bindinput="inputtime"/>
+    </view>     
+       
+    <view class="comments">
+      <view class='info_name'>活动备注:</view>
+      <textarea class='info_long' value="俱乐部每周三周六晚19点至22点活动；可通过小程序报名参加最近一次活动" bindinput="inputComments"/>
+    </view>
+
+    <view>
+      <button class="submit-button" bindtap="submitInfo">创建活动</button>
+    </view>
+  </view>
+</view>

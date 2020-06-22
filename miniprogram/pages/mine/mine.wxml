@@ -1,0 +1,54 @@
+<!--pages/mine/mine.wxml-->
+<view class = 'container'>
+<view class = 'tableHeader'>我参加的活动</view>
+<view class = 'table'>
+  <view class = 'tr'>
+    <view class = 'th'>活动日期</view>
+    <view class = 'th'>活动状态</view>
+    <view class = 'th'>活动费用</view>
+  </view>
+  <view class = 'tr'>
+    <view class = 'td'>20200624</view>
+    <view class = 'td'>已报名</view>
+    <view class = 'td'>45</view>
+  </view>
+  <view class = 'tr'>
+    <view class = 'td'>20200617</view>
+    <view class = 'td'>已结束</view>
+    <view class = 'td'>45</view>
+  </view>
+  <view class = 'tr'>
+    <view class = 'td'>20200620</view>
+    <view class = 'td'>已结束</view>
+    <view class = 'td'>45</view>
+  </view>
+</view>
+<view class = 'middleline'></view>
+<view class = 'tableHeader'>会员排行榜</view>
+<view class = 'table'>
+  <view class = 'tr'>
+    <view class = 'th'>会员排名</view>
+    <view class = 'th'>会员账号</view>
+    <view class = 'th'>活动次数</view>
+  </view>
+  <view class = 'tr'>
+    <view class = 'td'>1</view>
+    <view class = 'td'>Ti10</view>
+    <view class = 'td'>100</view>
+  </view>
+  <view class = 'tr'>
+    <view class = 'td'>2</view>
+    <view class = 'td'>赵姐</view>
+    <view class = 'td'>90</view>
+  </view>
+  <view class = 'tr'>
+    <view class = 'td'>3</view>
+    <view class = 'td'>翁咏</view>
+    <view class = 'td'>80</view>
+  </view>
+</view>
+<view class = 'middleline'></view>
+<view class = 'tableHeader'>说明：以上信息纯属虚构，如有雷同，纯属巧合</view>
+
+</view>
+

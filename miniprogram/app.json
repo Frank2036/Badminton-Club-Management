@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/activity/activity",
+    "pages/mine/mine",
+    "pages/about/about",
+    "pages/create/create",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "天津蓝天羽毛球俱乐部",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#FF9900",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "活动报名",
+        "iconPath": "images/activity.png",
+        "selectedIconPath": "images/activity_selected.png"
+      },
+      {
+        "pagePath": "pages/create/create",
+        "text": "创建活动",
+        "iconPath": "images/create.png",
+        "selectedIconPath": "images/create_selected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的活动",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine_selected.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于我们",
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/about_selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

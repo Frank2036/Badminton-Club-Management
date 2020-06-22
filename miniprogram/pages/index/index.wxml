@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    您好，还没有可以报名的活动。
+  </view>
+  <textarea class="userinfo">
+    您可以：
+    1. 联系管理员
+    2. 随便看看
+  </textarea>
+
+</view>

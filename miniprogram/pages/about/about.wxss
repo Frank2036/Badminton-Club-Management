@@ -1,0 +1,35 @@
+/* pages/create/create.wxss */
+
+.container{
+  width: 675rpx;
+  height: 95%;
+  padding: 20px;
+  font-size: 25rpx;
+  background-color: #ededed;
+  }
+
+  .about{
+    padding: 20rpx;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    border: 1rpx solid #eaeaea
+  }
+  
+  .description_header{
+    width: 100%; 
+    height: 50rpx;
+    display: flex;
+    color: #000000;
+    background-color: #fc6121;
+    vertical-align: middle;
+    font-style: bold;
+    border-bottom: 1rpx solid #eaeaea;
+  }
+.description{
+  width: 100%; 
+  height: 150rpx;
+  display: flex;
+  color: #000000;
+  vertical-align: middle;
+  border-bottom: 2rpx solid #000000;
+}

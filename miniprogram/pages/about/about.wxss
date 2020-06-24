@@ -33,3 +33,9 @@
   vertical-align: middle;
   border-bottom: 2rpx solid #000000;
 }
+
+.version{
+  padding-top: 20rpx;
+  padding-left: 5rpx;
+  font-size: 20rpx;
+}

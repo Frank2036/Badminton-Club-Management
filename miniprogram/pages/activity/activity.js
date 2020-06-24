@@ -1,6 +1,6 @@
 // pages/activity/activity.js
-const app = getApp();
 var utils = require('../../utils/util.js');
+const app = getApp();
 
 Page({
 
@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    wx_openID: '',
     activity_id: '',
     subject:'天津蓝天羽毛球俱乐部活动',
     address:'正能量羽毛球馆',
@@ -19,22 +20,28 @@ Page({
     comments: '',
     registerUserInfo: [],
     enrolled: false,
+    enroll_amount:20,
+    allow_enroll: true,
+    allow_cancel: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
+    
     const db = wx.cloud.database();
-
-    //load the recent activity information
     const _ = db.command;
+    var that = this;
+    
+    //load the recent activity information
     const today_str = JSON.stringify(new Date()).substr(1,10);
-
+    var latestActivity = {};
     db.collection("club_activity").where({
       activityDate: db.command.gte(utils.formatDay(new Date))}).orderBy("activityDate", "asc").get().then(res => {
-        const latestActivity = res.data[0];
+        if (res.data.length > 0){
+        latestActivity = res.data[0];      
         this.setData({
           activity_id: latestActivity._id,
           subject: latestActivity.subject,
@@ -46,21 +53,22 @@ Page({
           activityTime: latestActivity.activityTime,
           comments: latestActivity.comments,
         })
+        }
       })
     
     //load enroll information
     const MAX_LIMIT=20;
     const userInfoHistory =  [];
 
-    
     db.collection("club_activity_register_history").where({
-      activity_id: this.activity_id
+      activity_id: latestActivity.activity_id
       }).skip(0).limit(MAX_LIMIT).get().then(res=>{          
         for (var i=0; i < res.data.length; i++){
           userInfoHistory.push(res.data[i].userInfo);
         }
         this.setData({
           registerUserInfo : userInfoHistory,
+          enroll_amount : userInfoHistory.length,
         })
       }),  
 
@@ -72,27 +80,36 @@ Page({
       }
       this.setData({
         registerUserInfo : userInfoHistory,
+        enroll_amount : userInfoHistory.length,
       })
     })
 
+    
     //check if the current user has enrolled. If enrolled, set "enroll" button disabled
-    const userInfo = app.globalData;
-    const name = app.globalData.nickName;
-
-    db.collection("club_activity_register_history").where({
-      "userInfo.nickName": name,
-      }).count().then(res => {
-        console.log(res);
-        if (res.total > 0){
-          this.setData({
-            enrolled: true,
-          })} else{
-            this.setData({
-              enrolled: false,
+    //if the enroll_amount >= limit, then "enroll" button disabled
+    var user_openid = '';
+    wx.cloud.callFunction({
+      name: "login",
+      success: res =>{
+          user_openid = res.result.openid;          
+          db.collection("club_activity_register_history").where({
+            "_openid": user_openid,
+            }).count().then(res => {
+              if (res.total > 0){
+                that.setData({
+                  allow_enroll: false,
+                  allow_cancel: true,
+                })} else{
+                  that.setData({
+                    allow_enroll: true,
+                    allow_cancel: false,
+                  })
+                }
             })
-          }
-        })
-  },        
+      }
+    })
+  },
+        
     
     
 
@@ -103,45 +120,53 @@ Page({
       app.setUserInfo(userInfo);
     }
     const db=wx.cloud.database();
-      db.collection("club_activity_register_history").add({
-        data:{
-          'activity_id': this.data.activity_id,
-          'userInfo': userInfo,
-        }
-      })
-
-      var that = this;
-      setTimeout(function(){
-        console.log("register activity");
-        that.onLoad();
-      },1000);
-      
-      
-  },
-
-  unregisterActivity: function(event){   
+    db.collection("club_activity_register_history").add({
+      data:{
+        'activity_id': this.data.activity_id,
+        'userInfo': userInfo,
+      }
+    })
     
-    const userInfo = app.globalData;
-    const name = app.globalData.nickName;
-
-    const db=wx.cloud.database();
-    var enroll_id = "";
-    db.collection("club_activity_register_history").where({
-      "userInfo.nickName": name,
-    }).get().then(res=>{
-        enroll_id = res.data[0]._id;
-        console.log(enroll_id);
-
-        db.collection("club_activity_register_history").doc(enroll_id).remove().then(res=>{
-          console.log(res);
-      })
+    wx.showToast({
+      title: "报名成功！"
     })
 
     var that = this;
     setTimeout(function(){
-      console.log("un-register activity");
       that.onLoad();
-    },1000);
+    },500)
+      
+  },
+
+  //un-register after user press "cancel" button
+  unregisterActivity: function(event){       
+    
+    const db=wx.cloud.database();
+    var enroll_id = "";
+    var user_openid = '';
+    wx.cloud.callFunction({
+      name: "login",
+      success: res =>{
+          user_openid = res.result.openid;          
+          db.collection("club_activity_register_history").where({
+            "_openid": user_openid,
+          }).get().then(res=>{
+              enroll_id = res.data[0]._id;
+              db.collection("club_activity_register_history").doc(enroll_id).remove().then(res=>{
+                console.log(res);
+              })
+          })
+      }
+    })
+     
+    wx.showToast({
+      title: "取消成功！"
+    })
+
+    var that = this;
+    setTimeout(function(){
+      that.onLoad();
+    },1000)
     
  
   },
@@ -157,7 +182,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onLoad();
   },
 
   /**

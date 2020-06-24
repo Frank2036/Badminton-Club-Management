@@ -18,11 +18,15 @@
       <view class='info_desc'>{{limit}}</view>
     </view>   
     <view class = "activity">
+      <view class='info_name'>已报人数: </view>
+      <view class='info_desc'>{{enroll_amount}}</view>
+    </view>   
+    <view class = "activity">
       <view class='info_name'>活动费用: </view>
       <view class='info_desc'>{{price}}</view>
     </view>     
     <view class = "activity">
-      <view class='info_name'>活动日期: </view>
+      <view class='info_name'>最近活动: </view>
       <view class='info_desc'>{{activityDate}}</view>
     </view>     
     <view class = "activity">
@@ -35,6 +39,11 @@
       <view class='info_long'>{{comments}}</view>
     </view>
 
+    <view>
+      <button class="submit-button" bindgetuserinfo="registerActivity" name="enroll" open-type="getUserInfo" disabled = "{{!allow_enroll || (limit <= enroll_amount)}}">报名</button>
+      <button class="submit-button" bindtap="unregisterActivity" name="cancel" disabled="{{!allow_cancel}}">取消</button>
+    </view> 
+
     <view class="enroll">
       <view class='enroll_list'>
         <view class='one_person' wx:for="{{registerUserInfo}}" wx:for-item="item" wx:key="activity_id">
@@ -44,9 +53,6 @@
       </view>
     </view>
 
-    <view>
-      <button class="submit-button" bindgetuserinfo="registerActivity" name="enroll" open-type="getUserInfo" disabled = "{{enrolled}}">报名</button>
-      <button class="submit-button" bindtap="unregisterActivity" name="cancel" disabled="{{!enrolled}}">取消</button>
-    </view> 
+    
   </view>
 </view>

@@ -32,12 +32,13 @@
 .create_activity .info_desc{
   width: 75%;
   height: 50rpx;
+  padding-top: 8rpx;
   color: #000000;
 }
 
 .comments{
   width: 100%; 
-  height: 100rpx;
+  height: 120rpx;
   display: flex;
   vertical-align: middle;
   border-bottom: 1rpx solid #eaeaea;
@@ -71,6 +72,7 @@
   height: 350rpx;
   display: flex;
   vertical-align: middle;
+  border-top: 1rpx solid #eaeaea;
   border-bottom: 1rpx solid #eaeaea;
 }
 

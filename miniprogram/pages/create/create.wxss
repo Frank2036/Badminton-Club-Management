@@ -65,3 +65,7 @@
   align-self: center;
   font-size: 10 rpx;
 }
+
+.note{
+  padding: 8rpx;
+}

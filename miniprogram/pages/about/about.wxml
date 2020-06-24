@@ -2,14 +2,14 @@
 <view class = 'container'>
   <view class = 'about'>
     <view class = 'description_header'>俱乐部介绍</view>
-    <view class = 'description'>天津蓝天羽毛球俱乐部成立于2000年，是天津历史最久的羽毛球组织，没有之一；多次获得天津市业余羽毛球比赛前三名，是天津市水平最高的业余俱乐部之一；俱乐部会不定期组织比赛，提高活动趣味性和竞技水平</view>
+    <view class = 'description'>天津蓝天羽毛球俱乐部成立于2000年，是天津历史最久的羽毛球组织；多次获得天津市业余羽毛球比赛前三名，是天津市水平最高的业余俱乐部之一；俱乐部欢迎有一定基础的球友参与活动，小程序直接报名即可！</view>
     <view class = 'description_header'>活动介绍</view>
-    <view class = 'description'>俱乐部固定每周三、周六晚19：00-22：00在正能量羽毛球馆活动(河东区成林道附近）；每次活动4-5块场地，平均每块场地6人；欢迎各类球友通过小程序或微信群直接报名参加活动。</view>
+    <view class = 'description'>俱乐部固定每周三、周六晚19：00-22：00在正能量羽毛球馆活动(河东区成林道附近）；每次活动4-5块场地，每块场地6人；欢迎通过小程序或微信群直接报名参加活动。</view>
     <view class = 'description_header'>活动费用</view>
-    <view class = 'description'>每个月俱乐部活动8-9次，包月300元；单次参加活动男45，女35；学生优惠，25元一次；可打球后交费，交费请与赵姐联系</view>
+    <view class = 'description'>单次参加活动男45，女35；学生优惠，25元一次；包月300；可打球后交费</view>
     <view class = 'description_header'>联系方式</view>
-    <view class = 'description'>
-      Ti10: 微信/电话 13820920025
-    </view>
+    <view class = 'description'>Ti10: 微信/电话 13820920025</view>
   </view>
+  <view class = 'version'>小程序version 1.0; </view>
+  <view class = 'version'>Copyright 2020 @Ti10</view>
 </view>

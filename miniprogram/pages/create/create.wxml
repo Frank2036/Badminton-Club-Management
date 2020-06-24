@@ -33,11 +33,12 @@
        
     <view class="comments">
       <view class='info_name'>活动备注:</view>
-      <textarea class='info_long' value="俱乐部每周三周六晚19点至22点活动；可通过小程序报名参加最近一次活动" bindinput="inputComments"/>
+      <textarea class='info_long' value="俱乐部每周三周六晚19点至22点活动,欢迎使用小程序直接报名最近一次活动;如有朋友需要报名，可点击右上角的三个点转发" bindinput="inputComments"/>
     </view>
 
     <view>
-      <button class="submit-button" bindtap="submitInfo">创建活动</button>
+      <button class="submit-button" bindtap="submitInfo" disabled = "{{!isAdmin}}">创建活动 - 仅管理员可用</button>
     </view>
   </view>
+  <view class = "note">如需使用"创建活动"功能，请联系管理员 </view>
 </view>

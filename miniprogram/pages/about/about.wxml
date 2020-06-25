@@ -10,6 +10,6 @@
     <view class = 'description_header'>联系方式</view>
     <view class = 'description'>Ti10: 微信/电话 13820920025</view>
   </view>
-  <view class = 'version'>小程序version 1.0; </view>
+  <view class = 'version'>小程序version 1.1; </view>
   <view class = 'version'>Copyright 2020 @Ti10</view>
 </view>

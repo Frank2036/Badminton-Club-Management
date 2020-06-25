@@ -7,31 +7,38 @@ Page({
     address:'正能量羽毛球馆',
     court: 'VIP 1-5号',
     limit:30,
-    price: '单次成人男45，成人女35， 学生25',
+    price: '单次男45，女35，学生优惠25；包月300；',
     activityDate: utils.formatDay(new Date),
     activityTime: '晚19点至22点',
     comments: '俱乐部每周三周六晚19点至22点活动,欢迎使用小程序直接报名最近一次活动;如有朋友需要报名，可点击右上角的三个点转发',
-    admin: 'ti10',
     isAdmin: false,
   },
 
   onLoad: function (options) {
-    const admin = 'ti10';
-    var nickName = "";
-    
-    if (app.is_login()){
-      nickName = app.globalData.userInfo.nickName;
-    }
-    if (nickName == admin){
-      this.setData({
-        isAdmin: true,
-      })
-    }
+
+    const db = wx.cloud.database();
+    wx.cloud.callFunction({
+      name: "login",
+      success: res =>{
+          const user_openid = res.result.openid;          
+          db.collection("user_info").where({
+            "_openid": user_openid,
+            }).get().then(res => {
+              if (res.data.length ==1) {
+                if (res.data[0].role == 'admin'){
+                  this.setData({
+                    isAdmin: true,
+                  });
+                }
+              };
+            })
+      }
+    })
     
   },
 
   onShow: function () {
-  
+    this.onLoad()
   },
 
 
@@ -65,13 +72,6 @@ Page({
   inputCourt(e){
     this.setData({
       court: e.detail.value
-    })
-  },  
-
-  //修改人数上限
-  inputLimit(e){
-    this.setData({
-      limit: e.detail.value
     })
   },  
 
@@ -110,10 +110,6 @@ Page({
     })
   },
 
-  submitTest(e){
-    console.log("submit Test");
-  },
-
   //点击提交
   submitInfo(e){
     const submitData = {
@@ -125,9 +121,7 @@ Page({
       'activityDate': this.data.activityDate,
       'activityTime': this.data.activityTime,
       'comments': this.data.comments,
-      'creator': "blueskyti10"
     }
-    console.log("start submit info");
     //对输入数据进行校验
     const db=wx.cloud.database();
     db.collection("club_activity").add({
@@ -140,7 +134,6 @@ Page({
         'activityDate': this.data.activityDate,
         'activityTime': this.data.activityTime,
         'comments': this.data.comments,
-        'creator': "blueskyti10"
       }
       }).then(res=>{
       console.log(res);

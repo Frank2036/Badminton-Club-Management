@@ -18,7 +18,7 @@
     </view>   
     <view class = "activity">
       <view class='info_name'>活动费用: </view>
-      <input class='info_desc' value="单次成人男45，成人女35，学生25" bindinput="inputPrice"/>
+      <input class='info_desc' value="单次男45，女35，学生优惠25；包月300" bindinput="inputPrice"/>
     </view>     
     <view class = "activity">
       <view class='info_name'>活动日期: </view>
@@ -28,7 +28,7 @@
     </view>     
     <view class = "activity">
       <view class='info_name'>活动时间: </view>
-      <input class='info_desc' value="晚19点至22点" bindinput="inputtime"/>
+      <input class='info_desc' value="晚19点至22点" bindinput="inputTime"/>
     </view>     
        
     <view class="comments">

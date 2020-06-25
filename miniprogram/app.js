@@ -24,6 +24,7 @@ App({
       name: "login",
       success: res =>{
         this.globalData.openidID = res.result.openid;
+        console.log(res);
       }
     })
     this.loadUserInfo(); 

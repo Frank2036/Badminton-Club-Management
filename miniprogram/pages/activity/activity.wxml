@@ -40,8 +40,8 @@
     </view>
 
     <view>
-      <button class="submit-button" bindgetuserinfo="registerActivity" name="enroll" open-type="getUserInfo" disabled = "{{!allow_enroll || (limit <= enroll_amount)}}">报名</button>
-      <button class="submit-button" bindtap="unregisterActivity" name="cancel" disabled="{{!allow_cancel}}">取消</button>
+      <button class="submit-button" bindgetuserinfo="registerActivity" name="enroll" open-type="getUserInfo" disabled = "{{disable_enroll}}">报名</button>
+      <button class="submit-button" bindtap="unregisterActivity" name="cancel" disabled="{{disable_cancel}}">取消</button>
     </view> 
 
     <view class="enroll">

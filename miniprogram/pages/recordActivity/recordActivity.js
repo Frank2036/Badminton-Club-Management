@@ -1,18 +1,28 @@
-// miniprogram/pages/activity/activity.js
+// pages/recordActivity/recordActivity.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    enrollList : [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const db = wx.cloud.database();
+    var that = this;
+    
+    db.collection("club_activity_register_history").limit(10).where({
+      activity_id: "1229caae5ef1a5c1003a41430198863e"
+    }).get().then(res => {
+      console.log(res);
+      this.setData({
+        enrollList : res.data,
+      })
+    })
   },
 
   /**

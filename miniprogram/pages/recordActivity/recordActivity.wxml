@@ -1,0 +1,11 @@
+<!--pages/recordActivity/recordActivity.wxml-->
+<text>pages/recordActivity/recordActivity.wxml</text>
+<block wx:for = "{{enrollList}}" wx:for-item = "ma" wx:key = "_openid">
+  <view class = 'tr'>
+    <input name = "_id" class = 'td' hidden = "{{true}}" value ="{{ma._id}}"></input>
+    <view class = 'td-short'>{{ma.clubID}}</view>
+    <view class = 'td'>{{ma.nickName}}</view>
+    <input name = "gender" class = 'td-short' value = "{{ma.gender}}"></input>
+    <input name = "expenseType" class = 'td' value = "{{ma.expenseType}}"></input>
+  </view>   
+</block>

@@ -1,3 +1,16 @@
+.container{
+  width: 675rpx;
+  height: 95%;
+  padding: 20px;
+  font-size: 25rpx;
+  background-color: #ededed;
+  }
+
+.all_info{
+  padding: 20rpx;
+  background-color: #ffffff;
+}
+
 .table{
   border: 1px solid #ccc;
   width: 100%;
@@ -15,7 +28,7 @@
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #ccc;
-  background-color: #00ccff
+  background-color: #fc6121
 }
 
 .tr .td{
@@ -33,6 +46,4 @@
   padding: 50rpx;
 }
 
-.container{
-  padding: 8rpx;
-}
+

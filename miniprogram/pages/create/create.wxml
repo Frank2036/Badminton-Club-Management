@@ -37,7 +37,7 @@
     </view>
 
     <view>
-      <button class="submit-button" bindtap="submitInfo" disabled = "{{!isAdmin}}">创建活动 - 仅管理员可用</button>
+      <button class="submit-button" bindtap="submitInfo" disabled = "{{!isAdmin}}"  >创建活动 - 仅管理员可用</button>
     </view>
   </view>
   <view class = "note">如需使用"创建活动"功能，请联系管理员 </view>

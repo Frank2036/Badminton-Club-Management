@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    myActivity:[
+      {
+        activity_date: "20200624",
+        activity_status: "已报名",
+        activity_price : 45
+      },
+      {
+        activity_date: "20200617",
+        activity_status: "已报名",
+        activity_price : 45
+      },
+      {
+        activity_date: "20200620",
+        activity_status: "已结束",
+        activity_price : 45
+      },
+    ]
   },
 
   /**

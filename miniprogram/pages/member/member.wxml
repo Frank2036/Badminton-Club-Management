@@ -1,0 +1,35 @@
+<!--miniprogram/pages/member/member.wxml-->
+<view class = 'container'>
+<view class = 'content'>
+
+<view>登记新球友信息:</view>
+<view wx:if = "{{member.length == 0}}">没有未确认信息的新球员</view>
+<block wx:if = "{{member.length > 0}}">
+  <view class = 'tr'>
+    <view class = 'th' hidden = "{{true}}">openid</view>
+    <view class = 'th-short'>编号</view>
+    <view class = 'th'>昵称</view>
+    <view class = 'th-short'>性别</view>
+    <view class = 'th'>费用类型</view>
+    <view class = 'th'>更新信息</view>
+  </view>
+  <block wx:for = "{{member}}" wx:for-item = "ma" wx:key = "_openid">
+  <form class = 'table' bindsubmit = 'onSubmitEvent'>
+    <view class = 'tr'>
+      <input name = "_id" class = 'td' hidden = "{{true}}" value ="{{ma._id}}"></input>
+      <view class = 'td-short'>{{ma.clubID}}</view>
+      <view class = 'td'>{{ma.nickName}}</view>
+      <input name = "gender" class = 'td-short' value = "{{ma.gender}}"></input>
+      <input name = "expenseType" class = 'td' value = "{{ma.expenseType}}"></input>
+      <view class = 'td'>    
+        <button class = 'submitButton' form-type = 'submit' type = "primary">
+          <text class = 'buttonText'>确定</text>
+        </button>
+      </view>
+    </view>    
+  </form>
+  </block>
+</block>
+<button class = 'returnTabs' bindtap = 'onReturnTabs'>返回“活动管理”页面</button>
+</view>
+</view>

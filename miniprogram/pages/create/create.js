@@ -134,6 +134,8 @@ Page({
         'activityDate': this.data.activityDate,
         'activityTime': this.data.activityTime,
         'comments': this.data.comments,
+        'status': "new",
+        'club_id': 1,
       }
       }).then(res=>{
       console.log(res);
@@ -144,7 +146,7 @@ Page({
 
       setTimeout(function(){
         wx.switchTab({
-          url: '/pages/activity/activity',  
+          url: '/pages/enroll/enroll',  
       })
       },1000)      
     });

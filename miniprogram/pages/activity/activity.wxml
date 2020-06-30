@@ -1,58 +1,36 @@
-<view class="container">
- 
-  <view class="create_activity">
-    <view class = "activity">
-      <view class='info_name'>活动名称: </view>
-      <view class='info_desc'>{{subject}}</view>
-    </view>   
-    <view class = "activity">
-      <view class='info_name'>活动地点: </view>
-      <view class='info_desc'>{{address}}</view>
-    </view>   
-    <view class = "activity">
-      <view class='info_name'>活动场地: </view>
-      <view class='info_desc'>{{court}}</view>
-    </view>   
-    <view class = "activity">
-      <view class='info_name'>限报人数: </view>
-      <view class='info_desc'>{{limit}}</view>
-    </view>   
-    <view class = "activity">
-      <view class='info_name'>已报人数: </view>
-      <view class='info_desc'>{{enroll_amount}}</view>
-    </view>   
-    <view class = "activity">
-      <view class='info_name'>活动费用: </view>
-      <view class='info_desc'>{{price}}</view>
-    </view>     
-    <view class = "activity">
-      <view class='info_name'>最近活动: </view>
-      <view class='info_desc'>{{activityDate}}</view>
-    </view>     
-    <view class = "activity">
-      <view class='info_name'>活动时间: </view>
-      <view class='info_desc'>{{activityTime}}</view>
-    </view>     
-       
-    <view class="comments">
-      <view class='info_name'>活动备注:</view>
-      <view class='info_long'>{{comments}}</view>
-    </view>
-
-    <view>
-      <button class="submit-button" bindgetuserinfo="registerActivity" name="enroll" open-type="getUserInfo" disabled = "{{disable_enroll}}">报名</button>
-      <button class="submit-button" bindtap="unregisterActivity" name="cancel" disabled="{{disable_cancel}}">取消</button>
-    </view> 
-
-    <view class="enroll">
-      <view class='enroll_list'>
-        <view class='one_person' wx:for="{{registerUserInfo}}" wx:for-item="item" wx:key="activity_id">
-          <image class = 'avatar' src="{{item.avatarUrl}}"></image> 
-          <view class = 'name'>{{item.nickName}}</view>
-        </view>
+<!--miniprogram/pages/activity/activity.wxml-->
+<view class = 'container'>
+  <view class = 'content'>
+    <view class = 'subject'>
+      <image src = '/images/activity.png' class='info_icon'></image>
+      <view class = 'subject_desc'>
+        <view>第一步：管理员</view>
+        <navigator class = 'navi' open-type = 'navigate' url = '/pages/create/create'>创建活动</navigator>
       </view>
     </view>
-
-    
+    <view class = 'subject'>
+      <image src = '/images/enroll.png' class='info_icon'></image>
+      <view class = 'subject_desc'>
+        <view>第二步： 球友在</view>
+        <navigator class = 'navi' open-type = 'switchTab' url = '/pages/enroll/enroll'>"活动报名"</navigator>
+        <view>页面报名</view>
+      </view>
+    </view>
+    <view class = 'subject'>
+      <image src = '/images/record.png' class='info_icon'></image>
+      <view class = 'subject_desc'>
+        <view>第三步： 管理员</view>
+        <navigator class = 'navi' open-type = 'navigate' url = '/pages/recordActivity/recordActivity'>登记活动情况</navigator>
+      </view>
+    </view>
+    <view class = 'subject'>
+      <image src = '/images/finance.png' class='info_icon'></image>
+      <view class = 'subject_desc'>
+        <view>第四步： 自动生成</view>
+        <navigator class = 'navi' open-type = 'navigate' url = '/pages/create/create'>俱乐部活动报告</navigator>
+      </view>
+    </view>
   </view>
+  <view class = 'note'>说明1：点击彩色字体可跳转到相应页面</view>
+  <view class = 'note'>说明2：管理员操作的步骤需要相应权限</view>
 </view>

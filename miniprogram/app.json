@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/enroll/enroll",
+    "pages/create/create",
     "pages/activity/activity",
     "pages/mine/mine",
-    "pages/about/about",
-    "pages/create/create"
+    "pages/about/about"
+  
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -19,19 +21,19 @@
     "backgroundColor": "#FFFFFF",
     "list": [
       {
-        "pagePath": "pages/activity/activity",
+        "pagePath": "pages/enroll/enroll",
         "text": "活动报名",
-        "iconPath": "images/activity.png",
-        "selectedIconPath": "images/activity_selected.png"
+        "iconPath": "images/enroll.png",
+        "selectedIconPath": "images/enroll_selected.png"
       },
       {
         "pagePath": "pages/create/create",
         "text": "创建活动",
-        "iconPath": "images/create.png",
-        "selectedIconPath": "images/create_selected.png"
+        "iconPath": "images/activity.png",
+        "selectedIconPath": "images/activity_selected.png"
       },
       {
-        "pagePath": "pages/about/about", 
+        "pagePath": "pages/about/about",
         "text": "关于我们",
         "iconPath": "images/about.png",
         "selectedIconPath": "images/about_selected.png"

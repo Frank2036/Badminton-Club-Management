@@ -23,6 +23,9 @@ function formatDay(date) {
     month = 0+String(month)
   }
   var day = date.getDate()
+  if(day<10){
+    day = 0+String(day)
+  }
 
   return year+'-'+month+'-'+day
 }

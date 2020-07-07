@@ -1,7 +1,9 @@
 //app.js
 App({
 
-  globalData : {},
+  globalData : {
+    prefer_activity_id : "no-prefer",
+  },
 
   onLaunch: function () {
     
@@ -27,7 +29,7 @@ App({
         this.globalData.openidID = res.result.openid;
       }
     })
-    this.loadUserInfo(); 
+    this.loadUserInfo();
   },
 
   is_login: function(){

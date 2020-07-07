@@ -41,19 +41,6 @@ Page({
     this.onLoad()
   },
 
-
-  onPullDownRefresh: function () {
-  
-  },
-
-  onReachBottom: function () {
-  
-  },
-
-  onShareAppMessage: function () {
-  
-  },
-
   //输入活动名称
   inputSubject(e){
     this.setData({
